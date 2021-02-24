@@ -1,0 +1,22 @@
+.todo-item--completed {
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+  text-align: left;
+  padding: 11px 0;
+  text-align: left;
+}
+
+.todos-list__container {
+  width: 400px;
+}
+
+.todo-input {
+  margin-right: 15px;
+}
+
+.todo__title {
+  text-align: left;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}

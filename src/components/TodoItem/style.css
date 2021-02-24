@@ -1,0 +1,58 @@
+.todo-item__container {
+  justify-content: space-between;
+  width: 400px;
+  height: 40px;
+  align-items: center;
+}
+
+.todo-item__label {
+  outline: none;
+  border-style: unset;
+}
+
+.todo-item__label:focus {
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+  border: 1px solid;
+}
+
+.todo-item__delete {
+  border-style: unset;
+  background-color: white;
+  color: red;
+  /* border-bottom: 2px solid red; */
+  /* padding: unset; */
+  padding-left: unset;
+  padding-right: unset;
+  font-size: 10px;
+  font-weight: 700;
+  margin: 0 5px;
+  width: 44px;
+  height: 26px;
+  border-bottom: 1px solid transparent;
+}
+
+.todo-item__delete:hover {
+  border-bottom: 1px solid red;
+
+  cursor: pointer;
+}
+
+.todo-item__done {
+  border-style: unset;
+  background: limegreen;
+  color: white;
+  padding: 6px;
+  border-radius: 2px;
+  margin: 0 5px;
+  font-size: 10px;
+  font-weight: 700;
+  width: 50px;
+}
+
+.todo-item__done:hover {
+  background: white;
+  color: limegreen;
+  border: 1px solid limegreen;
+  cursor: pointer;
+}

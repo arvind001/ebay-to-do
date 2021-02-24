@@ -20,26 +20,6 @@ export default function Todos(props) {
     setInput(event.target.value);
   };
 
-  const deleteItem = (index) => {
-    console.log("index", index);
-    var tempTasks = [...pendingTasks];
-    if (tempTasks.length === 1) {
-      tempTasks = [];
-    } else {
-      tempTasks.splice(index, 1);
-      console.log("after splice", tempTasks);
-    }
-
-    setPendingTasks(tempTasks);
-  };
-
-  const onItemComplete = (item) => {
-    deleteItem(item);
-    var tempTasks = [...completedTasks];
-    tempTasks.push(item);
-    setCompletedTasks(tempTasks);
-  };
-
   return (
     <div className="todo__container column">
       <div className="todo__title">To-Dos List</div>
@@ -57,11 +37,11 @@ export default function Todos(props) {
           {pendingTasks.map((el, i) => (
             <TodoItem
               item={el}
-              deleteItem={deleteItem}
-              completeItem={onItemComplete}
               index={i}
               pendingTasks={pendingTasks}
               setPendingTasks={setPendingTasks}
+              completedTasks={completedTasks}
+              setCompletedTasks={setCompletedTasks}
             />
           ))}
         </div>

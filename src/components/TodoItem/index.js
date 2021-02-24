@@ -3,10 +3,8 @@ import "./style.css";
 
 export default function TodoItem(props) {
   const [buttonsVisible, setButtonsVisible] = useState(false);
-  //   const [input, setInput] = useState(props.item);
 
   const onInputChange = (event) => {
-    // setInput(event.target.value);
     var tempTasks = [...props.pendingTasks];
     tempTasks[props.index] = event.target.value;
     props.setPendingTasks(tempTasks);
@@ -17,6 +15,16 @@ export default function TodoItem(props) {
     tempTasks.splice(index, 1);
     props.setPendingTasks(tempTasks);
   };
+
+  const onCompleteItem = (item, index) => {
+    var tempTasks = [...props.pendingTasks];
+    tempTasks.splice(index, 1);
+    props.setPendingTasks(tempTasks);
+    var tempTasks = [...props.completedTasks];
+    tempTasks.push(item);
+    props.setCompletedTasks(tempTasks);
+  };
+
   useEffect(() => {
     console.log("new tasks", props.pendingTasks);
   }, [props.item]);
@@ -43,7 +51,7 @@ export default function TodoItem(props) {
           </button>
           <button
             className="todo-item__done"
-            onClick={() => props.completeItem(props.item)}
+            onClick={() => onCompleteItem(props.item, props.index)}
           >
             DONE
           </button>

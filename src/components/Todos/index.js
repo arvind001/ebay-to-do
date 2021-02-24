@@ -12,6 +12,7 @@ export default function Todos(props) {
       var tempTasks = [...pendingTasks];
       tempTasks.push(input);
       setPendingTasks(tempTasks);
+      setInput("");
     }
   };
 
@@ -19,9 +20,16 @@ export default function Todos(props) {
     setInput(event.target.value);
   };
 
-  const deleteItem = (item) => {
+  const deleteItem = (index) => {
+    console.log("index", index);
     var tempTasks = [...pendingTasks];
-    tempTasks = tempTasks.filter((el) => el !== item);
+    if (tempTasks.length === 1) {
+      tempTasks = [];
+    } else {
+      tempTasks.splice(index, 1);
+      console.log("after splice", tempTasks);
+    }
+
     setPendingTasks(tempTasks);
   };
 
